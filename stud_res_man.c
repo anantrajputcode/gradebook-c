@@ -2,7 +2,7 @@
 int main()
 {
     int choice = 0;
-    int n;
+    int new_student;
     int pre_def = 5;
     char name[10][50] = {"Anant", "pushkar", "Tanish", "Arun", "Ritika"};
     int marks[10][3] = {{95, 92, 91}, {78,86,76}, {76, 45, 53}, {78, 89, 94}, {98, 90, 85}};
@@ -19,14 +19,14 @@ int main()
     if (p == password)
     {
 
-    while(choice != 3)
+    while(choice != 4)
     {
         printf("Student Result Management System\n");
         printf("---------------------------------\n");
         printf("1. View Pre-fed Student Results\n");
         printf("2. Add New Students and View All Results\n");
-        /*printf("3. Search student using Roll no.\n");*/
-        printf("3. Exit\n");
+        printf("3. Search student using Roll no.\n");
+        printf("4. Exit\n");
 
 
         printf("Enter your choice: ");
@@ -34,9 +34,9 @@ int main()
         if(choice == 2)
         {
             printf("\nEnter number of new students to add: ");
-            scanf("%d", &n);
-            total_stud = pre_def + n;
-            for (int i = pre_def; i < pre_def + n; i++)
+            scanf("%d", &new_student);
+            total_stud = pre_def + new_student;
+            for (int i = pre_def; i < total_stud; i++)
             {
                 printf("\nEnter Roll No. of student %d: ", i + 1);
                 scanf("%d", &roll[i]);
@@ -56,17 +56,55 @@ int main()
             total_stud = pre_def;
 
         }
-        /*if (choice == )
+        else if (choice == 3)
         {
             int r;
             printf("Enter Roll no. of the student:-");
             scanf("%d",&r);
-            printf("\n--- Student Detai`ls ---\n");
-            printf("Roll\tName\t\tTotal\t\tPercent\t\tGrade\n");
-            printf("%d\t%s\t\t%d\t\t%.2f%%\t\t%c\n", roll[r], name[r], total[r], percent[r], grade[r]);
-            continue;
-        }*/
-        else if(choice == 3)
+            int check;
+            if (new_student == 0)
+            {
+                check = pre_def;
+            }
+            else
+            {
+                check = pre_def + new_student;
+            }
+
+            for (int i = 0; i < check; i++)
+        {   
+            total[i] = 0;
+            for(int j = 0; j < 3; j++)
+            {
+            total[i] += marks[i][j]; 
+            }
+            percent[i] = total[i] * 100.0 / 300.0;
+        
+            if (percent[i] >= 90)
+                grade[i] = 'A';
+            else if (percent[i] >= 80)
+                grade[i] = 'B';
+            else if (percent[i] >= 70)
+                grade[i] = 'C';
+            else
+                grade[i] = 'F';
+            
+        }
+            if (r <= check)
+            {
+                printf("\n\n\n\n\n\n\n--- Student Details ---\n");
+                printf("\nRoll\tName\t\tTotal\t\tPercent\t\tGrade\n");
+                printf("%d\t%s\t\t%d\t\t%.2f%%\t\t%c\n", roll[r-1], name[r-1], total[r-1], percent[r-1], grade[r-1]);
+                printf("\n\n\n\n\n");
+                continue;
+            }
+            else
+            {
+                printf("\n\n\n\n\n--------No Record found.---------\n\n\n\n\n");
+                continue;
+            }
+        }
+        else if(choice == 4)
         {
             printf("Exited the menu succesfully.");
             try = 5;
