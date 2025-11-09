@@ -11,7 +11,7 @@ int main()
     float percent[10];
     char grade[10];
     int total_stud;
-    int password = 243005, p;
+    int password = 12345, p;
     int try= 0;
     while(try != 5)
     {printf("Enter the password to log in:-");

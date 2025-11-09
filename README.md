@@ -37,7 +37,7 @@ It allows users to view pre-fed records, add new students, and automatically cal
 ---
 
 ## 🧾 Default Details
-- **Password:** `243005`  
+- **Password:** `12345`  
 - **Pre-fed Students:** 5 (Anant, Pushkar, Tanish, Arun, Ritika)
 
 ---
