@@ -69,11 +69,13 @@ int main()
         else if(choice == 3)
         {
             printf("Exited the menu succesfully.");
+            try = 5;
             break;
         }
         else
         {
             printf("Invalid Response.\n");
+            try = 5;
             continue;
         }
 
